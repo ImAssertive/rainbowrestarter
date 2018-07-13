@@ -48,7 +48,4 @@ class Bot(commands.Bot):
             self.currentColour = 0
         return discord.Colour(int(colours[self.currentColour], 16))
 
-
-@bot.event
-
 run(token)
