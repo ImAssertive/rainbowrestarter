@@ -14,8 +14,6 @@ class restarter:
             embed = discord.Embed(colour=useful.getcolour(ctx), title=response)
         else:
             embed = discord.Embed(colour=useful.getcolour(ctx), title="Returned without response")
-        link="https://i.imgur.com/DC65Tix.png"
-        embed.set_thumbnail(link)
         await ctx.channel.send(embed=embed)
 
 
@@ -38,16 +36,12 @@ class restarter:
     async def killtraa(self, ctx):
         subprocess.Popen.kill()
         embed = discord.Embed(colour=useful.getcolour(ctx), title="Killing traatan...", description="You monster...")
-        link="https://i.imgur.com/DC65Tix.png"
-        embed.set_thumbnail(link)
         await ctx.channel.send(embed=embed)
 
 
     async def shellfunction(self, ctx, shellcommand, desc):
         subprocess.Popen(shellcommand, shell=True)
         embed = discord.Embed(colour=useful.getcolour(ctx), title=desc)
-        link="https://i.imgur.com/DC65Tix.png"
-        embed.set_thumbnail(link)
         await ctx.channel.send(embed=embed)
 
 def setup(bot):
