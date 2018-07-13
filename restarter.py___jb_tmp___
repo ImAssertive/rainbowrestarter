@@ -34,9 +34,11 @@ class restarter:
     @commands.command()
     @checks.has_role("Admin")
     async def killtraa(self, ctx):
-        subprocess.Popen.kill(self)
+        #subprocess.Popen.kill(self)
         embed = discord.Embed(colour=useful.getcolour(ctx), title="Killing traatan...", description="You monster...")
         await ctx.channel.send(embed=embed)
+        print(ctx.author.display_name + "killed Traa tan.")
+        await ctx.guild.get_member(455137631718735872).send("traa!quit")
 
 
     async def shellfunction(self, ctx, shellcommand, desc):
