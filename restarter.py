@@ -10,9 +10,9 @@ class restarter:
     async def eval(ctx, *, toeval):
         response = (eval(toeval))
         if response != "":
-            embed = discord.Embed(colour=self.bot.getcolour(), title=response)
+            embed = discord.Embed(colour=useful.getcolour(), title=response)
         else:
-            embed = discord.Embed(colour=self.bot.getcolour(), title="Returned without response")
+            embed = discord.Embed(colour=useful.getcolour(), title="Returned without response")
         statusmessage = ("Python Eval")
         embed.set_thumbnail("https://i.imgur.com/DC65Tix.png")
         await ctx.channel.send(embed=embed)
@@ -36,13 +36,13 @@ class restarter:
     @checks.has_role("Admin")
     async def killtraa(self, ctx):
         subprocess.Popen.kill()
-        embed = discord.Embed(colour=self.bot.getcolour(), title="Killing traatan...", description="You monster...")
+        embed = discord.Embed(colour=useful.getcolour(), title="Killing traatan...", description="You monster...")
         await ctx.channel.send(embed=embed)
 
 
     async def shellfunction(self, ctx, shellcommand, desc):
         subprocess.Popen(shellcommand, shell=True)
-        embed = discord.Embed(colour=self.bot.getcolour(), title=desc)
+        embed = discord.Embed(colour=useful.getcolour(), title=desc)
         await ctx.channel.send(embed=embed)
 
 def setup(bot):

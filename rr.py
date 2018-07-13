@@ -15,37 +15,25 @@ def gettoken():
     return token
 token = gettoken()
 
-def run(token):
-    bot = commands.Bot(command_prefix=getPrefix, pm_help=False, description="Restarter bot for Assertive's bots!")
 
-    if __name__ == '__main__':
-        for extension in initial_extensions:
-            try:
-                bot.load_extension(extension)
-            except Exception as e:
-                print('Failed to load extension ' + extension, file=sys.stderr)
-                traceback.print_exc()
+bot = commands.Bot(command_prefix=getPrefix, pm_help=False, description="Restarter bot for Assertive's bots!")
 
-    bot.run(token)
+if __name__ == '__main__':
+    for extension in initial_extensions:
+        try:
+            bot.load_extension(extension)
+        except Exception as e:
+            print('Failed to load extension ' + extension, file=sys.stderr)
+            traceback.print_exc()
+token = gettoken()
 
-class Bot(commands.Bot):
-    def __init__(self, **kwargs):
-        super().__init__(
-            description=kwargs.pop("description"),
-            command_prefix=getPrefix
-        )
-        self.currentColour = -1
 
-    async def on_ready(self):
-        print("Username: {0}\nID: {0.id}".format(self.user))
-        game = discord.Game("chess with Traa tan.")
-        await self.change_presence(status=discord.Status.online, activity=game)
+@bot.event
+async def on_ready():
+    print('Logged in as')
+    print(bot.user.name)
+    print(bot.user.id)
+    print('------')
 
-    def getcolour(self):
-        colours = ["5C6BC0", "AB47BC", "EF5350", "FFA726", "FFEE58", "66BB6A", "5BCEFA", "F5A9B8", "FFFFFF", "F5A9B8", "5BCEFA"]
-        self.currentColour += 1
-        if self.currentColour ==  len(colours) - 1:
-            self.currentColour = 0
-        return discord.Colour(int(colours[self.currentColour], 16))
 
-run(token)
+bot.run(token)
