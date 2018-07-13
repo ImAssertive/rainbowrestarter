@@ -32,7 +32,7 @@ class restarter:
         description="Launching traatan!"
         await self.shellfunction(ctx, command)
 
-    @command.command()
+    @commands.command()
     @checks.has_role("Admin")
     async def killtraa(self, ctx):
         subprocess.Popen.kill()
