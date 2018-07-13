@@ -35,7 +35,7 @@ async def on_ready():
     print(bot.user.id)
     print('------')
     game = discord.Game("chess with Traa-tan!")
-    await self.change_presence(status=discord.Status.online, activity=game)
+    await bot.change_presence(status=discord.Status.online, activity=game)
 
 
 bot.run(token)
