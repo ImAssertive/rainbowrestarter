@@ -22,7 +22,7 @@ def justme():
 
 def whitelisted():
     async def predicate(ctx):
-        whitelistedmembers = [163691476788838401, 173498062260404225, 186081930972889088, 265953808381640704]
+        whitelistedmembers = [163691476788838401, 173498062260404225, 186081930972889088, 265953808381640704, 174982651759820800, 201731484363522048]
         if ctx.author.id in whitelistedmembers:
             return True
         else:
