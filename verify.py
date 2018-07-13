@@ -11,7 +11,7 @@ class verifyCog:
         userid = useful.getid(user)
         await ctx.author.send('```**Welcome, '+ctx.guild.get_member(userid).mention+'!**\n• Please make sure to read <#441971134217322506>\n• To set your profile tags, send @SamBot#5904 a DM with the command *`!info`*\n• Introduce yourself on <#348800438176317441> if you wish\n• Check out our opt-in channels with the command *`?ranks`* on <#348776263986446336>```')
 
-    async def on_member_join(ctx):
+    async def on_member_join(self, ctx):
         if ctx.guild.id == 331517548636143626:
             await ctx.guild.get_member(163691476788838401).send('```**Welcome, '+ctx.mention+'!**\n• Please make sure to read <#441971134217322506>\n• To set your profile tags, send @SamBot#5904 a DM with the command *`!info`*\n• Introduce yourself on <#348800438176317441> if you wish\n• Check out our opt-in channels with the command *`?ranks`* on <#348776263986446336>```')
             for counter in range(0,4):

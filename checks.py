@@ -28,3 +28,4 @@ def whitelisted():
         else:
             return False
     return commands.check(predicate)
+
