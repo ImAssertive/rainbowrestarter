@@ -5,7 +5,7 @@ class verifyCog:
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(hidden=true)
+    @commands.command(hidden=True)
     @checks.whitelisted()
     async def verify(self, ctx, user):
         userid = useful.getid(user)
