@@ -6,7 +6,7 @@ class restarter:
         self.bot = bot
         self.bot.currentColour = -1
 
-    @commands.command()
+    @commands.command(hidden=true)
     @checks.justme()
     async def eval(ctx, *, toeval):
         response = (eval(toeval))
