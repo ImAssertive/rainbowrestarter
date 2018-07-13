@@ -4,15 +4,16 @@ from discord.ext import commands
 class restarter:
     def __init__(self, bot):
         self.bot = bot
+        self.bot.currentColour = -1
 
     @commands.command()
     @checks.justme()
     async def eval(ctx, *, toeval):
         response = (eval(toeval))
         if response != "":
-            embed = discord.Embed(colour=useful.getcolour(), title=response)
+            embed = discord.Embed(colour=useful.getcolour(ctx), title=response)
         else:
-            embed = discord.Embed(colour=useful.getcolour(), title="Returned without response")
+            embed = discord.Embed(colour=useful.getcolour(ctx), title="Returned without response")
         statusmessage = ("Python Eval")
         embed.set_thumbnail("https://i.imgur.com/DC65Tix.png")
         await ctx.channel.send(embed=embed)
@@ -36,13 +37,13 @@ class restarter:
     @checks.has_role("Admin")
     async def killtraa(self, ctx):
         subprocess.Popen.kill()
-        embed = discord.Embed(colour=useful.getcolour(), title="Killing traatan...", description="You monster...")
+        embed = discord.Embed(colour=useful.getcolour(ctx), title="Killing traatan...", description="You monster...")
         await ctx.channel.send(embed=embed)
 
 
     async def shellfunction(self, ctx, shellcommand, desc):
         subprocess.Popen(shellcommand, shell=True)
-        embed = discord.Embed(colour=useful.getcolour(), title=desc)
+        embed = discord.Embed(colour=useful.getcolour(ctx), title=desc)
         embed.set_thumbnail("https://i.imgur.com/DC65Tix.png")
         await ctx.channel.send(embed=embed)
 
