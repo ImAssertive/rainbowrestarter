@@ -1,3 +1,4 @@
+
 def getid(mention):
     id = int("".join(each for each in mention if each.isdigit()))
     return id
@@ -18,9 +19,9 @@ def getMenuEmoji(noOfOptions):
     toReturn.append("❌")
     return toReturn
 
-    def getcolour(self):
-        colours = ["5C6BC0", "AB47BC", "EF5350", "FFA726", "FFEE58", "66BB6A", "5BCEFA", "F5A9B8", "FFFFFF", "F5A9B8", "5BCEFA"]
-        self.currentColour += 1
-        if self.currentColour ==  len(colours) - 1:
-            self.currentColour = 0
-        return discord.Colour(int(colours[self.currentColour], 16))
+def getcolour(ctx):
+colours = ["5C6BC0", "AB47BC", "EF5350", "FFA726", "FFEE58", "66BB6A", "5BCEFA", "F5A9B8", "FFFFFF", "F5A9B8", "5BCEFA"]
+    ctx.bot.currentColour += 1
+    if ctx.bot.currentColour ==  len(colours) - 1:
+        ctx.bot.currentColour = 0
+    return discord.Colour(int(colours[ctx.bot.currentColour], 16))
