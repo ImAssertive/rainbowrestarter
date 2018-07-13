@@ -1,7 +1,7 @@
 import discord, asyncio, checks, useful
 from discord.ext import commands
 
-class verify:
+class verifyCog:
     def __init__(self, bot):
         self.bot = bot
 
@@ -21,4 +21,4 @@ class verify:
 
 
 def setup(bot):
-    bot.add_cog(verify(bot))
+    bot.add_cog(verifyCog(bot))

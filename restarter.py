@@ -23,8 +23,7 @@ class restarter:
     async def updatetraa(self, ctx):
         shellcommand = "cd .. && cd traatan && git pull && cd .. traatan && python3 traatan.py"
         desc="Updated and restarted traatan!"
-        await self.ctx.channel.send("wew")
-        #await self.shellfunction(ctx, shellcommand)
+        await self.shellfunction(ctx, shellcommand)
 
     @commands.command()
     @checks.has_role("Admin")
