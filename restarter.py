@@ -22,14 +22,14 @@ class restarter:
     @checks.justme()
     async def updatetraa(self, ctx):
         shellcommand = "cd .. && cd traatan && git pull && cd .. traatan && python3 traatan.py"
-        description="Updated and restarted traatan!"
+        desc="Updated and restarted traatan!"
         await self.shellfunction(ctx, shellcommand)
 
     @commands.command()
     @checks.has_role("Admin")
     async def launchtraa(self, ctx):
         shellcommand="cd .. && cd traatan && python3 traatan.py"
-        description="Launching traatan!"
+        desc="Launching traatan!"
         await self.shellfunction(ctx, shellcommand)
 
     @commands.command()
@@ -40,9 +40,9 @@ class restarter:
         await ctx.channel.send(embed=embed)
 
 
-    async def shellfunction(self, ctx, shellcommand, description):
+    async def shellfunction(self, ctx, shellcommand, desc):
         subprocess.Popen(shellcommand, shell=True)
-        embed = discord.Embed(colour=self.bot.getcolour(), title=description)
+        embed = discord.Embed(colour=self.bot.getcolour(), title=desc)
         await ctx.channel.send(embed=embed)
 
 def setup(bot):
