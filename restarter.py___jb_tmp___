@@ -20,7 +20,7 @@ class restarter:
     @commands.command()
     @checks.justme()
     async def updatetraa(self, ctx):
-        shellcommand = "cd .. && cd traatan && git pull && cd .. traatan && python3 traatan.py"
+        shellcommand = "cd .. && cd traatan && git pull"
         desc="Updated and restarted traatan!"
         await self.shellfunction(ctx, shellcommand, desc)
 
