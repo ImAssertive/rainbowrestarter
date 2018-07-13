@@ -21,7 +21,7 @@ class restarter:
     @checks.justme()
     async def updatetraa(self, ctx):
         shellcommand = "cd .. && cd traatan && git pull"
-        desc="Updated and restarted traatan!"
+        desc="Updated traatan!"
         await self.shellfunction(ctx, shellcommand, desc)
 
     @commands.command(name="launchtraa", aliases=['start','starttraa'])
@@ -38,7 +38,8 @@ class restarter:
         embed = discord.Embed(colour=useful.getcolour(ctx), title="Killing traatan...", description="You monster...")
         await ctx.channel.send(embed=embed)
         print(ctx.author.display_name + "killed Traa tan.")
-        await ctx.guild.get_member(455137631718735872).send("traa!quit")
+        shh = await ctx.channel.send("traa!quit")
+        await shh.delete()
 
 
     async def shellfunction(self, ctx, shellcommand, desc):
