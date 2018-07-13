@@ -7,8 +7,8 @@ class restarter:
 
     @commands.command()
     @checks.justme()
-    async def eval(ctx, *, command):
-        response = (eval(command))
+    async def eval(ctx, *, toeval):
+        response = (eval(toeval))
         if response != "":
             embed = discord.Embed(colour=self.bot.getcolour(), title=response)
         else:
@@ -21,16 +21,16 @@ class restarter:
     @commands.command()
     @checks.justme()
     async def updatetraa(self, ctx):
-        command="cd .. && cd traatan && git pull && cd .. traatan && python3 traatan.py"
+        shellcommand="cd .. && cd traatan && git pull && cd .. traatan && python3 traatan.py"
         description="Updated and restarted traatan!"
-        await self.shellfunction(ctx, command)
+        await self.shellfunction(ctx, shellcommand)
 
     @commands.command()
     @checks.has_role("Admin")
     async def launchtraa(self, ctx):
-        command="cd .. && cd traatan && python3 traatan.py"
+        shellcommand="cd .. && cd traatan && python3 traatan.py"
         description="Launching traatan!"
-        await self.shellfunction(ctx, command)
+        await self.shellfunction(ctx, shellcommand)
 
     @commands.command()
     @checks.has_role("Admin")
@@ -40,8 +40,8 @@ class restarter:
         await ctx.channel.send(embed=embed)
 
 
-    async def shellfunction(self, ctx, command, description):
-        subprocess.Popen(command, shell=True)
+    async def shellfunction(self, ctx, shellcommand, description):
+        subprocess.Popen(shellcommand, shell=True)
         embed = discord.Embed(colour=self.bot.getcolour(), title=description)
         await ctx.channel.send(embed=embed)
 
