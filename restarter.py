@@ -4,7 +4,6 @@ from discord.ext import commands
 class restarter:
     def __init__(self, bot):
         self.bot = bot
-        self.p = ""
         self.bot.currentColour = -1
 
     @commands.command(hidden=True)
