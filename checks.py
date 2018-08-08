@@ -29,3 +29,10 @@ def whitelisted():
             return False
     return commands.check(predicate)
 
+def process_running():
+    async def predicate(ctx):
+        if ctx.bot.cogs['restarter'].p.poll() != None:
+            return True
+        else:
+            return False
+    return commands.check(predicate)

@@ -4,6 +4,7 @@ from discord.ext import commands
 class restarter:
     def __init__(self, bot):
         self.bot = bot
+        self.p = ""
         self.bot.currentColour = -1
 
     @commands.command(hidden=True)
@@ -19,6 +20,7 @@ class restarter:
 
     @commands.command()
     @checks.justme()
+    @checks.process_running()
     async def updatetraa(self, ctx):
         shellcommand = "cd .. && cd traatan && git pull"
         desc="Updated traatan!"
@@ -26,6 +28,7 @@ class restarter:
 
     @commands.command(name="launchtraa", aliases=['start','starttraa'])
     @checks.has_role("Admin")
+    @checks.process_running()
     async def launchtraa(self, ctx):
         shellcommand="cd .. && cd traatan && python3 traatan.py"
         desc="Launching traatan!"
@@ -37,13 +40,13 @@ class restarter:
         #subprocess.Popen.kill(self)
         embed = discord.Embed(colour=useful.getcolour(ctx), title="Killing traatan...", description="You monster...")
         await ctx.channel.send(embed=embed)
-        print(ctx.author.display_name + "killed Traa tan.")
+        print(ctx.author.display_name + " killed Traa tan.")
         shh = await ctx.channel.send("traa!quit")
         await shh.delete()
 
 
     async def shellfunction(self, ctx, shellcommand, desc):
-        subprocess.Popen(shellcommand, shell=True)
+        self.p = subprocess.Popen(shellcommand, shell=True)
         embed = discord.Embed(colour=useful.getcolour(ctx), title=desc)
         await ctx.channel.send(embed=embed)
 
