@@ -22,8 +22,11 @@ class restarter:
     @checks.process_running()
     async def updatetraa(self, ctx):
         shellcommand = "cd .. && cd traatan && git pull"
-        desc="Updated traatan!"
-        await self.shellfunction(ctx, shellcommand, desc)
+        desc="Updating traatan!"
+        self.p = subprocess.Popen(shellcommand, shell=True)
+        embed = discord.Embed(colour=useful.getcolour(ctx), title=desc)
+        await ctx.channel.send(embed=embed)
+
 
     @commands.command(name="launchtraa", aliases=['start','starttraa'])
     @checks.has_role("Admin")
@@ -31,7 +34,9 @@ class restarter:
     async def launchtraa(self, ctx):
         shellcommand="cd .. && cd traatan && python3 traatan.py"
         desc="Launching traatan!"
-        await self.shellfunction(ctx, shellcommand,desc)
+        self.p = subprocess.Popen(shellcommand, shell=True)
+        embed = discord.Embed(colour=useful.getcolour(ctx), title=desc)
+        await ctx.channel.send(embed=embed)
 
     @commands.command()
     @checks.has_role("Admin")
@@ -43,11 +48,9 @@ class restarter:
         shh = await ctx.channel.send("traa!quit")
         await shh.delete()
 
-
-    async def shellfunction(self, ctx, shellcommand, desc):
+    async def shellfunction(self, shellcommand):
         self.p = subprocess.Popen(shellcommand, shell=True)
-        embed = discord.Embed(colour=useful.getcolour(ctx), title=desc)
-        await ctx.channel.send(embed=embed)
+
 
 def setup(bot):
     bot.add_cog(restarter(bot))
