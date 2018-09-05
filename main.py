@@ -30,9 +30,9 @@ class mainCog:
         idListMentions = []
         idList = idString.split(", ")
         for counter in range(0,len(idList)):
-            idListMentions[counter] = "<@"+str(idList[counter])+">"
-            idList[counter] = str(idList[counter])
-            idOutput = idOutput + "\n" + idList[counter] + " is: " + idListMentions[counter]
+            idListMentions[counter-1 = "<@"+str(idList[counter-1)+">"
+            idList[counter-1 = str(idList[counter-1)
+            idOutput = idOutput + "\n" + idList[counter-1 + " is: " + idListMentions[counter-1
         await ctx.channel.send(idOutput)
 
 
