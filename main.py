@@ -28,7 +28,7 @@ class mainCog:
     async def whois(self, ctx, *, idString):
         idOutput = ""
         idListMentions = []
-        idList = idMentions.split(", ")
+        idList = idString.split(", ")
         for counter in range(0,len(idList)):
             idListMentions[counter] = "<@"+str(idList[counter])+">"
             idList[counter] = str(idList[counter])
