@@ -1,7 +1,7 @@
 import discord, asyncio, sys, traceback, checks
 from discord.ext import commands
 
-initial_extensions = ['restarter', 'verify']
+initial_extensions = ['restarter', 'main']
 
 def getPrefix(bot, message):
     prefixes = ["rr!","r!","!"]
@@ -18,6 +18,7 @@ token = gettoken()
 
 bot = commands.Bot(command_prefix=getPrefix, pm_help=False, description="Restarter bot for Assertive's bots!")
 bot.remove_command("help")
+bot.welcomeNotif = False
 
 if __name__ == '__main__':
     for extension in initial_extensions:

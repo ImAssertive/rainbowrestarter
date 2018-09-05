@@ -48,6 +48,27 @@ class restarter:
         shh = await ctx.channel.send("traa!quit")
         await shh.delete()
 
+    @commands.command(name = "exit", aliases =['quit'], hidden = True)
+    @checks.justme()
+    @checks.process_running()
+    async def exit(self, ctx):
+        thanos = random.randint(1,5)
+        if thanos == 1:
+            await ctx.channel.send("Mrs Assertive I dont feel so good...")
+        if thanos == 2:
+            await ctx.channel.send("Why...")
+        if thanos == 3:
+            await ctx.channel.send(":wave: Goodbye.")
+        if thanos == 4:
+            await ctx.channel.send("The machine... stops")
+        if thanos == 5:
+            await ctx.channel.send("The horror. The horror.")
+        await self.bot.db.close()
+        await self.bot.logout()
+        sys.exit()
+
+
+
     async def shellfunction(self, shellcommand):
         self.p = subprocess.Popen(shellcommand, shell=True)
 
