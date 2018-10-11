@@ -18,7 +18,7 @@ token = gettoken()
 
 bot = commands.Bot(command_prefix=getPrefix, pm_help=False, description="Restarter bot for Assertive's bots!")
 bot.remove_command("help")
-bot.welcomeNotif = False
+bot.welcomeNotif = 0
 
 if __name__ == '__main__':
     for extension in initial_extensions:
