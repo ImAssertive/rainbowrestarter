@@ -36,6 +36,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
+    print(self.welcomeNotif)
     game = discord.Game("chess with Traa-tan!")
     await bot.change_presence(status=discord.Status.online, activity=game)
     shellcommand = "cd .. && cd traatan && python3 traatan.py"

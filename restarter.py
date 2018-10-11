@@ -1,4 +1,4 @@
-import discord, asyncio, checks, useful, os, subprocess
+import discord, asyncio, checks, useful, os, subprocess, random
 from discord.ext import commands
 
 class restarter:
