@@ -18,7 +18,6 @@ token = gettoken()
 
 bot = commands.Bot(command_prefix=getPrefix, pm_help=False, description="Restarter bot for Assertive's bots!")
 bot.remove_command("help")
-bot.welcomeNotif = 0
 
 if __name__ == '__main__':
     for extension in initial_extensions:
@@ -36,7 +35,6 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-    print(bot.welcomeNotif)
     game = discord.Game("chess with Traa-tan!")
     await bot.change_presence(status=discord.Status.online, activity=game)
     shellcommand = "cd .. && cd traatan && python3 traatan.py"

@@ -15,16 +15,6 @@ class mainCog:
             await ctx.author.send('```**Welcome, '+ctx.guild.get_member(userid).mention+'!**\n• Please make sure to read <#441971134217322506>\n• To set your profile tags, send @SamBot#5904 a DM with the command *`!info`*\n• Introduce yourself on <#348800438176317441> if you wish\n• Check out our opt-in channels with the command *`?ranks`* on <#348776263986446336>```')
         await ctx.author.send("<#331517548636143626> <#331517548636143626> <#331517548636143626> <#331517548636143626> <#331517548636143626> <#331517548636143626> ")
 
-    @commands.command(hidden=True, name="togglenotif", aliases=['shutup'])
-    @checks.justme()
-    async def togglenotif(self, ctx):
-        if ctx.bot.welcomeNotif == 1:
-            await ctx.channel.send(":white_check_mark: | Disabled welcome spam.")
-            ctx.bot.welcomeNotif = 0
-        else:
-            await ctx.channel.send(":white_check_mark: | Enabled welcome spam.")
-            ctx.bot.welcomeNotif = 1
-
     @commands.command(hidden=True)
     async def whois(self, ctx, *, idString):
         idOutput = ""
@@ -39,7 +29,7 @@ class mainCog:
 
 
     async def on_member_join(self, ctx):
-        if ctx.guild.id == 331517548636143626 and ctx.bot.welcomeNotif == 1:
+        if ctx.guild.id == 331517548636143626:
             await ctx.guild.get_member(163691476788838401).send('```**Welcome, '+ctx.mention+'!**\n• Please make sure to read <#441971134217322506>\n• To set your profile tags, send @SamBot#5904 a DM with the command *`!info`*\n• Introduce yourself on <#348800438176317441> if you wish\n• Check out our opt-in channels with the command *`?ranks`* on <#348776263986446336>```')
             for counter in range(0,4):
                 await ctx.guild.get_member(163691476788838401).send("NEW MEMBER <#448388368129064960> <#448388368129064960> <#448388368129064960> <#448388368129064960> <#448388368129064960> <#448388368129064960> <#448388368129064960> <#448388368129064960> <#448388368129064960> <#448388368129064960> <#448388368129064960> <#448388368129064960> <#448388368129064960> <#448388368129064960> <#448388368129064960> <#448388368129064960> <#448388368129064960> <#448388368129064960> <#448388368129064960> <#448388368129064960>")
