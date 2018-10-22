@@ -22,7 +22,7 @@ class restarter:
     @checks.process_running()
     async def updatetraa(self, ctx, branch = None):
         if branch:
-            shellcommand = "cd .. && cd traatan && git pull origin" + str(branch)
+            shellcommand = "cd .. && cd traatan && git pull origin " + str(branch)
         else:
             shellcommand = "cd .. && cd traatan && git pull"
         desc="Updating traatan!"
