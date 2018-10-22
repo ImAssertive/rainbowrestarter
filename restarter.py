@@ -20,8 +20,11 @@ class restarter:
     @commands.command()
     @checks.justme()
     @checks.process_running()
-    async def updatetraa(self, ctx):
-        shellcommand = "cd .. && cd traatan && git pull"
+    async def updatetraa(self, ctx, branch = None):
+        if branch:
+            shellcommand = "cd .. && cd traatan && git pull origin" + str(branch)
+        else:
+            shellcommand = "cd .. && cd traatan && git pull"
         desc="Updating traatan!"
         self.p = subprocess.Popen(shellcommand, shell=True)
         embed = discord.Embed(colour=useful.getcolour(ctx), title=desc)
@@ -63,8 +66,6 @@ class restarter:
             await ctx.channel.send("The machine... stops")
         if thanos == 5:
             await ctx.channel.send("The horror. The horror.")
-        await self.bot.db.close()
-        await self.bot.logout()
         sys.exit()
 
 
