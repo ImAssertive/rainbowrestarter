@@ -1,4 +1,4 @@
-dedimport discord
+import discord
 from discord.ext import commands
 
 def has_role(*arg):
