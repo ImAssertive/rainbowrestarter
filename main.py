@@ -1,4 +1,4 @@
-import discord, asyncio, checks, useful
+import discord, asyncio, checks, useful, sys
 from discord.ext import commands
 
 class mainCog:
