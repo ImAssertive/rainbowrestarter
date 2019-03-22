@@ -66,7 +66,7 @@ class restarter:
             await ctx.channel.send("The machine... stops")
         if thanos == 5:
             await ctx.channel.send("The horror. The horror.")
-        sys.exit()
+        quit()
 
 
 
