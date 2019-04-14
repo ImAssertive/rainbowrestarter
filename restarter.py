@@ -39,6 +39,7 @@ class restarter:
     async def launchtraa(self, ctx):
         try:
             self.p.kill()
+            print("p.kill ran?")
         except:
             print("Killing failed")
         shellcommand="cd .. && cd traatan && python3 traatan.py"
