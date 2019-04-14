@@ -1,4 +1,4 @@
-import discord, asyncio, checks, useful, os, subprocess, random
+import discord, asyncio, checks, useful, os, subprocess, random, signal
 from discord.ext import commands
 
 class restarter:
@@ -21,7 +21,7 @@ class restarter:
     @checks.justme()
     async def updatetraa(self, ctx, branch = None):
         try:
-            self.p.kill()
+            os.killpg(os.getpgid(self.p.pid), signal.SIGTERM)
         except:
             print("Killing failed")
         if branch:
@@ -29,7 +29,8 @@ class restarter:
         else:
             shellcommand = "cd .. && cd traatan && git pull"
         desc="Updating traatan!"
-        self.p = subprocess.Popen(shellcommand, shell=False)
+        self.p = subprocess.Popen(shellcommand, stdout=subprocess.PIPE,
+                       shell=True, preexec_fn=os.setsid)
         embed = discord.Embed(colour=useful.getcolour(ctx), title=desc)
         await ctx.channel.send(embed=embed)
 
@@ -38,13 +39,13 @@ class restarter:
     @checks.has_role("Admin")
     async def launchtraa(self, ctx):
         try:
-            self.p.kill()
+            os.killpg(os.getpgid(self.p.pid), signal.SIGTERM)
             print("p.kill ran?")
         except:
             print("Killing failed")
         shellcommand="cd .. && cd traatan && python3 traatan.py"
         desc="Launching traatan!"
-        self.p = subprocess.Popen(shellcommand, shell=False)
+        self.p = subprocess.Popen(shellcommand, shell=True)
         embed = discord.Embed(colour=useful.getcolour(ctx), title=desc)
         await ctx.channel.send(embed=embed)
 
