@@ -37,9 +37,6 @@ async def on_ready():
     print('------')
     game = discord.Game("chess with Traa-tan!")
     await bot.change_presence(status=discord.Status.online, activity=game)
-    shellcommand = "cd .. && cd traatan && python3 traatan.py"
-    print("Launching Traa-tan.")
-    await bot.cogs['restarter'].shellfunction(shellcommand)
 
 
 

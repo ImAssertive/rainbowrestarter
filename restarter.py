@@ -21,6 +21,10 @@ class restarter:
     @checks.justme()
     @checks.process_running()
     async def updatetraa(self, ctx, branch = None):
+        try:
+            self.p.kill()
+        except:
+            print("Killing failed")
         if branch:
             shellcommand = "cd .. && cd traatan && git pull origin " + str(branch)
         else:
@@ -44,12 +48,16 @@ class restarter:
     @commands.command()
     @checks.has_role("Admin")
     async def killtraa(self, ctx):
-        #subprocess.Popen.kill(self)
         embed = discord.Embed(colour=useful.getcolour(ctx), title="Killing traatan...", description="You monster...")
         await ctx.channel.send(embed=embed)
         print(ctx.author.display_name + " killed Traa tan.")
         shh = await ctx.channel.send("traa!quit")
         await shh.delete()
+        await asyncio.sleep(5)
+        try:
+            self.p.kill()
+        except:
+            print("Killing failed")
 
     @commands.command(name = "exit", aliases =['quit'], hidden = True)
     @checks.justme()
