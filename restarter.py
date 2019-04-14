@@ -19,7 +19,6 @@ class restarter:
 
     @commands.command()
     @checks.justme()
-    @checks.process_running()
     async def updatetraa(self, ctx, branch = None):
         try:
             self.p.kill()
@@ -37,8 +36,11 @@ class restarter:
 
     @commands.command(name="launchtraa", aliases=['start','starttraa'])
     @checks.has_role("Admin")
-    @checks.process_running()
     async def launchtraa(self, ctx):
+        try:
+            self.p.kill()
+        except:
+            print("Killing failed")
         shellcommand="cd .. && cd traatan && python3 traatan.py"
         desc="Launching traatan!"
         self.p = subprocess.Popen(shellcommand, shell=True)
@@ -61,7 +63,6 @@ class restarter:
 
     @commands.command(name = "exit", aliases =['quit'], hidden = True)
     @checks.justme()
-    @checks.process_running()
     async def exit(self, ctx):
         thanos = random.randint(1,5)
         if thanos == 1:
@@ -76,10 +77,6 @@ class restarter:
             await ctx.channel.send("The horror. The horror.")
         quit()
 
-
-
-    async def shellfunction(self, shellcommand):
-        self.p = subprocess.Popen(shellcommand, shell=True)
 
 
 def setup(bot):
