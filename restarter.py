@@ -29,7 +29,7 @@ class restarter:
         else:
             shellcommand = "cd .. && cd traatan && git pull"
         desc="Updating traatan!"
-        self.p = subprocess.Popen(shellcommand, stdout=subprocess.PIPE,
+        self.p = subprocess.Popen(shellcommand,
                        shell=True, preexec_fn=os.setsid)
         embed = discord.Embed(colour=useful.getcolour(ctx), title=desc)
         await ctx.channel.send(embed=embed)
@@ -44,7 +44,7 @@ class restarter:
             print("Killing failed")
         shellcommand="cd .. && cd traatan && python3 traatan.py"
         desc="Launching traatan!"
-        self.p = subprocess.Popen(shellcommand, stdout=subprocess.PIPE,
+        self.p = subprocess.Popen(shellcommand,
                        shell=True, preexec_fn=os.setsid)
         embed = discord.Embed(colour=useful.getcolour(ctx), title=desc)
         await ctx.channel.send(embed=embed)
