@@ -6,7 +6,7 @@ class mainCog:
         self.bot = bot
 
     @commands.command(hidden=True)
-    @checks.whitelisted()
+    @checks.has_role("Verification Notification")
     async def verify(self, ctx, user):
         userid = useful.getid(user)
         if ctx.author.id == 265953808381640704:
