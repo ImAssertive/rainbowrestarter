@@ -1,7 +1,7 @@
 import discord, asyncio, checks, useful, sys
 from discord.ext import commands
 
-class mainCog:
+class mainCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 

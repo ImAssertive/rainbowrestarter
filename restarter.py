@@ -1,7 +1,7 @@
 import discord, asyncio, checks, useful, os, subprocess, random, signal
 from discord.ext import commands
 
-class restarter:
+class restarter(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.bot.currentColour = -1
