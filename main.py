@@ -13,7 +13,7 @@ class mainCog(commands.Cog):
                               '!**\n• Please make sure to read #info'+
                               '\n• To set your profile tags, send @SamBot#5904 a DM with the command *`!info`*'+
                               '\n• Introduce yourself on #bio if you wish' +
-                              '• Check out our opt-in channels with the command *`w!ranks`* on #bot!'+
+                              '\n• Check out our opt-in channels with the command *`w!ranks`* on #bot!'+
                               '\n:42a:```')
         await ctx.author.send("<#331517548636143626> <#331517548636143626> <#331517548636143626> <#331517548636143626> <#331517548636143626> <#331517548636143626> ")
 
