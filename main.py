@@ -11,7 +11,7 @@ class mainCog(commands.Cog):
         userid = useful.getid(user)
         await ctx.author.send('```**Welcome, '+ctx.guild.get_member(userid).mention+
                               '!**\n• Please make sure to read #info'+
-                              '\n• To set your profile tags, send @SamBot#5904 a DM with the command *`!info`*'+
+                              '\n• To set your profile tags, send <@770758387859456060> a DM with the command *`!info`*'+
                               '\n• Introduce yourself on #bio if you wish' +
                               '\n• Check out our opt-in channels with the command *`w!ranks`* on #bot!'+
                               '\n:42a:```')
